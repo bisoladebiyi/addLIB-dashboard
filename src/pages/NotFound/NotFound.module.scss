@@ -1,0 +1,49 @@
+@use "../../styles/abstract/constants.scss" as constants;
+@use "../../styles/abstract/_mixins" as *;
+
+.notfound {
+  background: constants.$white;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  &_logo {
+    width: 100px;
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &_texts {
+    text-align: center;
+
+    h1 {
+      font-family: Vidaloka;
+      font-size: 90px;
+      color: constants.$primary_dark;
+    }
+
+    p:nth-child(2) {
+      font-size: 23px;
+      margin-block: 5px;
+    }
+
+    p:nth-child(3) {
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    a {
+      font-size: 14px;
+      color: constants.$primary;
+      text-decoration: underline;
+    }
+  }
+}
