@@ -1,0 +1,58 @@
+@use "../../styles/abstract/constants.scss" as constants;
+@use "../../styles/abstract/_mixins" as *;
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+
+  th,
+  td {
+    padding: 10px 25px;
+    width: 15%;
+
+    &:first-child {
+      width: 28%;
+    }
+  }
+
+  &_header {
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: left;
+
+    tr {
+      height: 48px;
+      background: #f9f9fb;
+    }
+
+    th {
+      font-weight: 500;
+      color: #666e7d;
+      white-space: nowrap;
+    }
+  }
+
+  &_body {
+    tr {
+      height: 64px;
+      background: #f9f9fb59;
+      cursor: pointer;
+
+      &:hover {
+        background: constants.$primary_bg;
+      }
+    }
+
+    td {
+      font-weight: 300;
+      font-size: 13px;
+      text-transform: capitalize;
+
+      img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
+    }
+  }
+}
