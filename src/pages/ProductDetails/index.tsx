@@ -3,24 +3,24 @@ import Layout from "../../components/Layout";
 import { useGetProductQuery } from "../../redux/features/product/productApiSlice";
 import style from "./ProductDetails.module.scss";
 import { FaStar } from "react-icons/fa";
+import States from "../../components/States";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const { data: product, isLoading } = useGetProductQuery(id);
+  const { data: product, isLoading, isError } = useGetProductQuery(id);
 
   if (!product && isLoading) {
     return (
       <Layout navText="Product">
-        <p>Loading...</p>
+        <States type="loading" />
       </Layout>
     );
   }
 
-  if (!product && !isLoading) {
+  if (isError) {
     return (
       <Layout navText="Product">
-        {/* empty state goes here  */}
-        <p>No result</p>
+        <States type="empty" />
       </Layout>
     );
   }

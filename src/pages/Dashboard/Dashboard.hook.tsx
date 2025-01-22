@@ -15,9 +15,17 @@ const useDashboard = () => {
   const [sortBy, setSortBy] = useState<"price" | "rating" | "">("");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
 
-  const { data: products } = useGetAllProductsQuery({});
+  const {
+    data: products,
+    isLoading: isProductsLoading,
+    isError: isProductsError,
+  } = useGetAllProductsQuery({});
   const { data: categories } = useGetCategoriesQuery({});
-  const { data: productsByCat } = useGetProductsByCategoryQuery(dropdownVal, {
+  const {
+    data: productsByCat,
+    isLoading: isProductsByCatLoading,
+    isError: isProductsByCatError,
+  } = useGetProductsByCategoryQuery(dropdownVal, {
     skip: dropdownVal === "all",
   });
 
@@ -88,12 +96,19 @@ const useDashboard = () => {
       : []),
   ];
 
+  const isLoading = isProductsLoading || isProductsByCatLoading;
+  const isError = isProductsError || isProductsByCatError;
+
   return {
     dropdownOptions,
     searchVal,
     dropdownVal,
     sortBy,
     sortDirection,
+    isProductsLoading,
+    isProductsByCatLoading,
+    isLoading,
+    isError,
     handleSearchAndSort,
     onDropDownChange,
     onInputChange,
