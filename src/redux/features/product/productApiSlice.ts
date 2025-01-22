@@ -37,7 +37,7 @@ export const products = createApi({
 
     getProduct: builder.query({
       query: (productId) => ({
-        url: API_ROUTES.GET_PRODUCTS + `/${productId}}`
+        url: API_ROUTES.GET_PRODUCTS + `/${productId}`
       }),
     }),
 

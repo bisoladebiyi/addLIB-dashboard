@@ -1,0 +1,66 @@
+@use "../../styles/abstract/constants.scss" as constants;
+@use "../../styles/abstract/_mixins" as *;
+
+.product_wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 35% 60%;
+  gap: 10%;
+  width: 80%;
+
+  &_img img {
+    width: 100%;
+  }
+
+  &_category {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  &_title {
+    font-family: Vidaloka;
+    margin-top: 10px;
+    font-size: 25px;
+
+    span {
+      font-size: 12px;
+      font-family: Inter;
+      font-weight: 400;
+    }
+  }
+
+  &_price {
+    margin-block: 30px;
+    font-weight: 500;
+    font-size: 20px;
+
+    span {
+      font-size: 12px;
+      font-style: italic;
+      color: constants.$primary;
+      margin-left: 10px;
+      font-weight: 400;
+    }
+  }
+
+  &_desc {
+    h6 {
+      font-family: Vidaloka;
+      font-size: 15px;
+      text-decoration: underline;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 10px;
+    }
+  }
+}

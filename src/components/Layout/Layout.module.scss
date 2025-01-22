@@ -8,6 +8,7 @@
 
   main {
     padding-inline: 30px;
+    height: calc(100% - 150px);
   }
 
   &_sidenav {
@@ -16,7 +17,7 @@
     &_logo {
       width: 120px;
       padding-left: 30px;
-      margin-block: 40px;
+      margin-block: 35px;
 
       img {
         width: 100%;
