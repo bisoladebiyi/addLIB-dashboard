@@ -1,0 +1,17 @@
+@use "../../styles/abstract/constants.scss" as constants;
+@use "../../styles/abstract/_mixins" as *;
+
+.states_wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.states {
+  &_empty {
+    text-align: center;
+    font-size: 15px;
+  }
+}

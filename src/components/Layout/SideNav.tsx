@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import style from "./Layout.module.scss";
+import { INavbar } from "../../types/INavbar.interface";
 
-const SideNav = () => {
+const SideNav: React.FC<Omit<INavbar, "navText">> = ({
+  handleToastDisplay,
+}) => {
   return (
     <div className={style.layout_sidenav}>
       <Link to="/">
@@ -17,9 +20,24 @@ const SideNav = () => {
         <Link to="/">
           <li className={style.layout_sidenav_linkitem_active}>dashboard</li>
         </Link>
-        <li className={style.layout_sidenav_linkitem}>reports</li>
-        <li className={style.layout_sidenav_linkitem}>settings</li>
-        <li className={style.layout_sidenav_linkitem}>help & resources</li>
+        <li
+          onClick={handleToastDisplay}
+          className={style.layout_sidenav_linkitem}
+        >
+          reports
+        </li>
+        <li
+          onClick={handleToastDisplay}
+          className={style.layout_sidenav_linkitem}
+        >
+          settings
+        </li>
+        <li
+          onClick={handleToastDisplay}
+          className={style.layout_sidenav_linkitem}
+        >
+          help & resources
+        </li>
       </ul>
     </div>
   );

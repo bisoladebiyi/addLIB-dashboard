@@ -8,6 +8,7 @@ import style from "./Dashboard.module.scss";
 
 import Radio from "../../components/Radio";
 import useDashboard from "./Dashboard.hook";
+import States from "../../components/States";
 
 const Dashboard = () => {
   // importing all logic from custom hook to clean up component
@@ -17,12 +18,16 @@ const Dashboard = () => {
     dropdownVal,
     sortBy,
     sortDirection,
+    isLoading,
+    isError,
     handleSearchAndSort,
     onDropDownChange,
     onInputChange,
     onSortSelect,
     changeSortDirection,
   } = useDashboard();
+
+  const products = handleSearchAndSort();
 
   return (
     <Layout navText="Dashboard">
@@ -69,7 +74,19 @@ const Dashboard = () => {
 
       {/* main table display  */}
       <div className={style.dashboard_table_wrapper}>
-        <Table products={handleSearchAndSort()} />
+        {isLoading ? (
+          // show loading state
+          <States type="loading" />
+        ) : isError ? (
+          // show error state
+          <States type="error" />
+        ) : !products[0] ? (
+          // show empty state
+          <States type="empty" />
+        ) : (
+          // show products
+          <Table products={handleSearchAndSort()} />
+        )}
       </div>
     </Layout>
   );

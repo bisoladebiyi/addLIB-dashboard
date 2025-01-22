@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 200px calc(100% - 200px);
   height: 100%;
+  position: relative;
 
   main {
     padding-inline: 30px;
