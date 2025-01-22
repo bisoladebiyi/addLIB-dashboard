@@ -1,0 +1,29 @@
+@use "../../styles/abstract/constants.scss" as constants;
+@use "../../styles/abstract/_mixins" as *;
+
+.search {
+  width: 240px;
+  position: relative;
+
+  &_input {
+    @include filter-style(constants.$search_border);
+    width: 100%;
+    padding: 10px 16px 10px 32px;
+    outline: none;
+
+    &:focus {
+      border: 1px solid constants.$primary_light;
+    }
+
+    &::placeholder {
+      color: constants.$search_placeholder;
+    }
+  }
+
+  &_icon {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+  }
+}

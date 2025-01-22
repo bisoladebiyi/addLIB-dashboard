@@ -1,0 +1,41 @@
+@use "../../styles/abstract/constants.scss" as constants;
+@use "../../styles/abstract/_mixins" as *;
+
+.radio_wrapper {
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+  gap: 5px;
+  color: constants.$dropdown_text;
+  cursor: pointer;
+
+  p {
+    text-transform: capitalize;
+  }
+}
+
+.radio,
+.radio_checked {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 1px solid constants.$search_placeholder;
+
+  &_checked {
+    background: constants.$primary_light;
+    border: none;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 100%;
+      background-color: constants.$white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

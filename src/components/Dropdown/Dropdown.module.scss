@@ -1,0 +1,60 @@
+@use "../../styles/abstract/constants.scss" as constants;
+@use "../../styles/abstract/_mixins" as *;
+
+.dropdown {
+  @include filter-style(constants.$search_border);
+  @include flex-between;
+  width: 170px;
+  position: relative;
+  color: constants.$dropdown_text;
+  font-size: 13px;
+  padding-inline: 16px;
+  text-transform: capitalize;
+
+  &_options,
+  &_options_open {
+    position: absolute;
+    top: 110%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+    border-radius: 4px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.1s ease-in-out max-height;
+    background: constants.$white;
+
+    &_open {
+      max-height: 1000px;
+      border: 1px solid constants.$search_placeholder;
+    }
+
+    &_item,
+    &_active {
+      height: 40px;
+      @include flex-between;
+      padding-inline: 16px;
+      color: constants.$search_placeholder;
+      cursor: pointer;
+      font-weight: 400;
+
+      &:hover {
+        color: constants.$dropdown_text;
+        background: constants.$border;
+      }
+    }
+
+    &_active {
+      color: constants.$dropdown_text;
+      background: constants.$border;
+    }
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    height: 14px;
+  }
+}
