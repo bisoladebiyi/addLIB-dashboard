@@ -20,7 +20,7 @@ const ProductDetails = () => {
   if (isError) {
     return (
       <Layout navText="Product">
-        <States type="empty" />
+        <States type="error" />
       </Layout>
     );
   }
