@@ -59,13 +59,13 @@ const useDashboard = () => {
     }
 
     if (sortBy === "price") {
-      filteredBySearch.sort((a: IProduct, b: IProduct) =>
+      filteredBySearch?.sort((a: IProduct, b: IProduct) =>
         sortDirection === "desc" ? b.price - a.price : a.price - b.price
       );
     }
 
     if (sortBy === "rating") {
-      filteredBySearch.sort((a: IProduct, b: IProduct) =>
+      filteredBySearch?.sort((a: IProduct, b: IProduct) =>
         sortDirection === "desc"
           ? b.rating.rate - a.rating.rate
           : a.rating.rate - b.rating.rate
