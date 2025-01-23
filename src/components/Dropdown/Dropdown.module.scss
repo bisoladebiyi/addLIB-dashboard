@@ -11,8 +11,15 @@
   padding-inline: 16px;
   text-transform: capitalize;
 
+  @include respond-to("mobile") {
+    padding-block: 5px;
+    font-size: 12px;
+    width: 150px;
+  }
+
   &_options,
   &_options_open {
+    z-index: 10;
     position: absolute;
     top: 110%;
     list-style: none;

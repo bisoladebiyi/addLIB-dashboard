@@ -10,8 +10,16 @@
     padding: 10px 25px;
     width: 15%;
 
+    @include respond-to("tablet") {
+      min-width: 150px;
+    }
+
     &:first-child {
       width: 28%;
+
+      @include respond-to("tablet") {
+        min-width: 300px;
+      }
     }
   }
 
@@ -19,6 +27,10 @@
     font-size: 14px;
     text-transform: uppercase;
     text-align: left;
+
+    @include respond-to("mobile") {
+      font-size: 13px;
+    }
 
     tr {
       height: 48px;
@@ -47,6 +59,10 @@
       font-weight: 300;
       font-size: 13px;
       text-transform: capitalize;
+
+      @include respond-to("mobile") {
+        font-size: 12px;
+      }
 
       img {
         width: 20px;

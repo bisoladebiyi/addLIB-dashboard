@@ -14,14 +14,37 @@
   gap: 10%;
   width: 80%;
 
+  @include respond-to("tablet") {
+    display: block;
+    width: 100%;
+  }
+
+  &_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &_img img {
     width: 100%;
+
+    @include respond-to("tablet") {
+      width: 200px;
+    }
+
+    @include respond-to("mobile") {
+      width: 150px;
+    }
   }
 
   &_category {
     font-size: 12px;
     text-transform: uppercase;
     margin-top: 30px;
+
+    @include respond-to("mobile") {
+      font-size: 10px;
+    }
   }
 
   &_title {
@@ -29,10 +52,18 @@
     margin-top: 10px;
     font-size: 25px;
 
+    @include respond-to("mobile") {
+      font-size: 20px;
+    }
+
     span {
       font-size: 12px;
       font-family: Inter;
       font-weight: 400;
+
+      @include respond-to("mobile") {
+        font-size: 10px;
+      }
     }
   }
 
@@ -41,12 +72,20 @@
     font-weight: 500;
     font-size: 20px;
 
+    @include respond-to("mobile") {
+      font-size: 18px;
+    }
+
     span {
       font-size: 12px;
       font-style: italic;
       color: constants.$primary;
       margin-left: 10px;
       font-weight: 400;
+
+      @include respond-to("mobile") {
+        font-size: 10px;
+      }
     }
   }
 
@@ -55,12 +94,20 @@
       font-family: Vidaloka;
       font-size: 15px;
       text-decoration: underline;
+
+      @include respond-to("mobile") {
+        font-size: 13px;
+      }
     }
 
     p {
       font-size: 13px;
       line-height: 20px;
       margin-top: 10px;
+
+      @include respond-to("mobile") {
+        font-size: 11px;
+      }
     }
   }
 }

@@ -6,14 +6,49 @@
   grid-template-columns: 200px calc(100% - 200px);
   height: 100%;
   position: relative;
+  overflow: hidden;
+
+  @include respond-to("desktop") {
+    display: block;
+  }
+
+  &_main {
+    overflow-y: auto;
+    height: 100%;
+
+    @include respond-to("desktop") {
+      width: 100%;
+    }
+  }
 
   main {
     padding-inline: 30px;
-    height: calc(100% - 150px);
+    height: 100%;
+
+    @include respond-to("tablet") {
+      padding-inline: 20px;
+    }
+
+    @include respond-to("mobile") {
+      padding-inline: 16px;
+    }
   }
 
-  &_sidenav {
+  &_sidenav,
+  &_sidenav_show {
     background: constants.$primary;
+
+    &_toggle {
+      all: unset;
+      display: none;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+
+      @include respond-to("desktop") {
+        display: flex;
+      }
+    }
 
     &_logo {
       width: 120px;
@@ -41,6 +76,10 @@
       font-size: 14px;
       cursor: pointer;
       opacity: 0.8;
+
+      @include respond-to("tablet") {
+        font-size: 12px;
+      }
     }
 
     &_linkitem_active {
@@ -48,6 +87,20 @@
       font-weight: 600;
       opacity: 1;
     }
+
+    @include respond-to("desktop") {
+      width: 200px;
+      position: fixed;
+      left: -300px;
+      top: 0;
+      height: 100%;
+      z-index: 20;
+      transition: 0.3s ease-in-out transform;
+    }
+  }
+
+  &_sidenav_show {
+    left: 0;
   }
 
   &_navbar {
@@ -55,16 +108,53 @@
     padding: 30px;
     border-bottom: 1px solid constants.$border;
 
+    @include respond-to("tablet") {
+      padding: 20px;
+    }
+
+    @include respond-to("mobile") {
+      padding: 16px;
+    }
+
+    div:first-child {
+      @include flex-between;
+    }
+
+    &_hamburger {
+      all: unset;
+      display: none;
+      margin-right: 10px;
+      cursor: pointer;
+
+      @include respond-to("desktop") {
+        display: flex;
+      }
+    }
+
     h3 {
       font-weight: 500;
       text-transform: capitalize;
       font-size: 25px;
+
+      @include respond-to("tablet") {
+        font-size: 20px;
+      }
+
+      @include respond-to("mobile") {
+        font-size: 18px;
+      }
     }
 
     &_btns {
       display: flex;
       align-items: center;
       gap: 20px;
+
+      svg {
+        @include respond-to("tablet") {
+          width: 15px;
+        }
+      }
 
       button {
         all: unset;

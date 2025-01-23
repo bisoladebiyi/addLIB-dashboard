@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { IDropdownOption } from "../../types/IDropdown.interface";
 import {
   useGetAllProductsQuery,
@@ -14,6 +14,10 @@ const useDashboard = () => {
   const [dropdownVal, setDropdownVal] = useState<string>("all");
   const [sortBy, setSortBy] = useState<"price" | "rating" | "">("");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
+  const [activePage, setActivePage] = useState<number>(1);
+  const [noOfPages, setNoOfPages] = useState<number>(1);
+
+  const NO_OF_ITEMS_PER_PAGE = 10;
 
   const {
     data: products,
@@ -28,6 +32,16 @@ const useDashboard = () => {
   } = useGetProductsByCategoryQuery(dropdownVal, {
     skip: dropdownVal === "all",
   });
+
+  useEffect(() => {
+    if (products && dropdownVal === "all") {
+      const pages = Math.ceil(products.length / NO_OF_ITEMS_PER_PAGE);
+      setNoOfPages(pages);
+    } else if (productsByCat && dropdownVal !== "all") {
+      const pages = Math.ceil(productsByCat.length / NO_OF_ITEMS_PER_PAGE);
+      setNoOfPages(pages);
+    }
+  }, [products, productsByCat, dropdownVal]);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchVal(e.target.value);
@@ -51,6 +65,14 @@ const useDashboard = () => {
     } else {
       setSortDirection("asc");
     }
+  };
+
+  const onPrev = () => {
+    setActivePage(activePage - 1);
+  };
+
+  const onNext = () => {
+    setActivePage(activePage + 1);
   };
 
   const handleSearchAndSort = () => {
@@ -80,7 +102,11 @@ const useDashboard = () => {
       );
     }
 
-    return filteredBySearch;
+    // return filteredBySearch;
+    return filteredBySearch?.slice(
+      0 + (activePage - 1) * NO_OF_ITEMS_PER_PAGE,
+      NO_OF_ITEMS_PER_PAGE + (activePage - 1) * NO_OF_ITEMS_PER_PAGE
+    );
   };
 
   const dropdownOptions = [
@@ -109,6 +135,10 @@ const useDashboard = () => {
     isProductsByCatLoading,
     isLoading,
     isError,
+    noOfPages,
+    activePage,
+    onPrev,
+    onNext,
     handleSearchAndSort,
     onDropDownChange,
     onInputChange,

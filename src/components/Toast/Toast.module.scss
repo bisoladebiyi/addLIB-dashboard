@@ -3,7 +3,7 @@
 
 .toast_wrapper {
   position: fixed;
-  z-index: 1;
+  z-index: 30;
   right: -400px;
   bottom: 30px;
   transition: right 0.4s ease-in-out;
@@ -13,6 +13,10 @@
 
   &_show {
     right: 40px;
+
+    @include respond-to("mobile") {
+      right: 10px;
+    }
   }
 }
 
@@ -29,4 +33,8 @@
   font-size: 14px;
   font-weight: 500;
   border: 1px solid constants.$info;
+
+  @include respond-to("mobile") {
+    font-size: 10px;
+  }
 }

@@ -5,10 +5,10 @@ import Layout from "../../components/Layout";
 import Search from "../../components/Search";
 import Table from "../../components/Table";
 import style from "./Dashboard.module.scss";
-
 import Radio from "../../components/Radio";
 import useDashboard from "./Dashboard.hook";
 import States from "../../components/States";
+import Pagination from "../../components/Pagination";
 
 const Dashboard = () => {
   // importing all logic from custom hook to clean up component
@@ -20,6 +20,10 @@ const Dashboard = () => {
     sortDirection,
     isLoading,
     isError,
+    noOfPages,
+    activePage,
+    onPrev,
+    onNext,
     handleSearchAndSort,
     onDropDownChange,
     onInputChange,
@@ -69,7 +73,7 @@ const Dashboard = () => {
         </div>
       </div>
       <p className={style.dashboard_count}>
-        Showing: <span>10 Products</span>
+        Showing: <span>{products?.length} Products</span>
       </p>
 
       {/* main table display  */}
@@ -88,6 +92,14 @@ const Dashboard = () => {
           <Table products={handleSearchAndSort()} />
         )}
       </div>
+      {products?.length > 0 && (
+        <Pagination
+          activePage={activePage}
+          noOfPages={noOfPages}
+          onPrev={onPrev}
+          onNext={onNext}
+        />
+      )}
     </Layout>
   );
 };
