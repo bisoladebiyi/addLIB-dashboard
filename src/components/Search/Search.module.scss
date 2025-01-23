@@ -5,11 +5,20 @@
   width: 240px;
   position: relative;
 
+  @include respond-to("mobile") {
+    width: 150px;
+  }
+
   &_input {
     @include filter-style(constants.$search_border);
     width: 100%;
     padding: 10px 16px 10px 32px;
     outline: none;
+
+    @include respond-to("mobile") {
+      padding-block: 5px;
+      font-size: 12px;
+    }
 
     &:focus {
       border: 1px solid constants.$primary_light;

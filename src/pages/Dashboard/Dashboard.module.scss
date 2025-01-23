@@ -6,9 +6,18 @@
     margin-top: 30px;
     @include flex-between;
 
+    @include respond-to("tablet") {
+      flex-direction: column;
+      align-items: start;
+    }
+
     &_search {
       display: flex;
       gap: 20px;
+
+      @include respond-to("tablet") {
+        margin-bottom: 20px;
+      }
     }
 
     &_sortBy {
@@ -16,6 +25,10 @@
       gap: 20px;
       font-size: 13px;
       justify-self: flex-end;
+
+      @include respond-to("mobile") {
+        font-size: 12px;
+      }
 
       button {
         all: unset;
@@ -36,6 +49,10 @@
     color: constants.$text_grey;
     font-weight: 300;
 
+    @include respond-to("mobile") {
+      font-size: 11px;
+    }
+
     span {
       font-weight: 600;
       color: constants.$black;
@@ -44,6 +61,10 @@
 
   &_table_wrapper {
     margin-top: 40px;
-    padding-bottom: 40px;
+    margin-bottom: 20px;
+
+    @include respond-to("large") {
+      overflow-x: scroll;
+    }
   }
 }

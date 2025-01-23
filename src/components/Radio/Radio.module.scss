@@ -9,6 +9,10 @@
   color: constants.$dropdown_text;
   cursor: pointer;
 
+  @include respond-to("mobile") {
+    font-size: 12px;
+  }
+
   p {
     text-transform: capitalize;
   }

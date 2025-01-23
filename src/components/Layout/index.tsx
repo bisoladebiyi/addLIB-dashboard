@@ -8,17 +8,30 @@ import Toast from "../Toast";
 const Layout: React.FC<ILayout> = ({ children, navText }) => {
   const [showToast, setShowToast] = useState<boolean>(false);
   const [text, setText] = useState<string>("");
+  const [showSideNav, setShowSideNav] = useState<boolean>(false);
 
   const handleToastDisplay = () => {
     setText("Looks like this feature isn't implemented yet.");
     setShowToast(true);
   };
 
+  const toggleSideNav = () => {
+    setShowSideNav(!showSideNav);
+  };
+
   return (
     <div className={style.layout}>
-      <SideNav handleToastDisplay={handleToastDisplay} />
-      <div>
-        <Navbar handleToastDisplay={handleToastDisplay} navText={navText} />
+      <SideNav
+        handleToastDisplay={handleToastDisplay}
+        showSideNav={showSideNav}
+        toggleSideNav={toggleSideNav}
+      />
+      <div className={style.layout_main}>
+        <Navbar
+          handleToastDisplay={handleToastDisplay}
+          navText={navText}
+          toggleSideNav={toggleSideNav}
+        />
         <main>{children}</main>
       </div>
       <Toast

@@ -8,6 +8,7 @@
   position: relative;
   display: grid;
   place-items: center;
+  padding-inline: 30px;
 
   &_logo {
     width: 100px;
@@ -28,22 +29,38 @@
       font-family: Vidaloka;
       font-size: 90px;
       color: constants.$primary_dark;
+
+      @include respond-to("tablet") {
+        font-size: 50px;
+      }
     }
 
     p:nth-child(2) {
       font-size: 23px;
       margin-block: 5px;
+
+      @include respond-to("tablet") {
+        font-size: 18px;
+      }
     }
 
     p:nth-child(3) {
       font-size: 14px;
       margin-top: 15px;
+
+      @include respond-to("tablet") {
+        font-size: 12px;
+      }
     }
 
     a {
       font-size: 14px;
       color: constants.$primary;
       text-decoration: underline;
+
+      @include respond-to("tablet") {
+        font-size: 12px;
+      }
     }
   }
 }

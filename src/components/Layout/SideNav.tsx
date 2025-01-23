@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import style from "./Layout.module.scss";
 import { INavbar } from "../../types/INavbar.interface";
+import { IoIosClose } from "react-icons/io";
 
 const SideNav: React.FC<Omit<INavbar, "navText">> = ({
+  showSideNav,
+  toggleSideNav,
   handleToastDisplay,
 }) => {
   return (
-    <div className={style.layout_sidenav}>
+    <div
+      className={showSideNav ? style.layout_sidenav_show : style.layout_sidenav}
+    >
+      <button className={style.layout_sidenav_toggle} onClick={toggleSideNav}>
+        <IoIosClose color="#fff" size={25} />
+      </button>
       <Link to="/">
         <figure className={style.layout_sidenav_logo}>
           <img
