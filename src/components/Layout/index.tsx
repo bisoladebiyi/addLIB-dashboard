@@ -5,6 +5,8 @@ import style from "./Layout.module.scss";
 import React, { useState } from "react";
 import Toast from "../Toast";
 
+/* UI for the layout of entire pages except 404 */
+
 const Layout: React.FC<ILayout> = ({ children, navText }) => {
   const [showToast, setShowToast] = useState<boolean>(false);
   const [text, setText] = useState<string>("");
@@ -32,8 +34,12 @@ const Layout: React.FC<ILayout> = ({ children, navText }) => {
           navText={navText}
           toggleSideNav={toggleSideNav}
         />
+
+        {/* Page content goes here */}
         <main>{children}</main>
       </div>
+
+      {/* Toast is a component that shows extra info (if needed) when an element is clicked  */}
       <Toast
         text={text}
         show={showToast}

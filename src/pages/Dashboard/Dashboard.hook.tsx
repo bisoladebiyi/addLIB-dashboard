@@ -7,7 +7,7 @@ import {
 } from "../../redux/features/product/productApiSlice";
 import { IProduct } from "../../types/IProduct.interface";
 
-// This hook file contains all the logic for the dashboard page.
+/* This hook file contains all the logic for the dashboard page. */
 
 const useDashboard = () => {
   const [searchVal, setSearchVal] = useState<string>("");
@@ -33,6 +33,7 @@ const useDashboard = () => {
     skip: dropdownVal === "all",
   });
 
+  // calculate total page numbers
   useEffect(() => {
     if (products && dropdownVal === "all") {
       const pages = Math.ceil(products.length / NO_OF_ITEMS_PER_PAGE);
@@ -43,14 +44,17 @@ const useDashboard = () => {
     }
   }, [products, productsByCat, dropdownVal]);
 
+  // handle search input value change
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchVal(e.target.value);
   };
 
+  // handle dropdown change for filtering
   const onDropDownChange = (option: IDropdownOption) => {
     setDropdownVal(option.value);
   };
 
+  // handle sort select by price or rating or none
   const onSortSelect = (text: "price" | "rating" | "") => {
     if (text === sortBy) {
       setSortBy("");
@@ -59,6 +63,7 @@ const useDashboard = () => {
     }
   };
 
+  // handle sort direction changeSortDirection, asc or desc
   const changeSortDirection = () => {
     if (sortDirection === "asc") {
       setSortDirection("desc");
@@ -67,14 +72,20 @@ const useDashboard = () => {
     }
   };
 
+  // switches to previous page
   const onPrev = () => {
     setActivePage(activePage - 1);
   };
 
+  // switches to next page
   const onNext = () => {
     setActivePage(activePage + 1);
   };
 
+  /* 
+    more complex function that handles search, 
+    sort and filter, returning final result 
+  */
   const handleSearchAndSort = () => {
     let filteredBySearch;
 
@@ -102,13 +113,13 @@ const useDashboard = () => {
       );
     }
 
-    // return filteredBySearch;
     return filteredBySearch?.slice(
       0 + (activePage - 1) * NO_OF_ITEMS_PER_PAGE,
       NO_OF_ITEMS_PER_PAGE + (activePage - 1) * NO_OF_ITEMS_PER_PAGE
     );
   };
 
+  // options to populate categories dropdown
   const dropdownOptions = [
     {
       value: "all",

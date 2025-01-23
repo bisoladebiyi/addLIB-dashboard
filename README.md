@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# addLIB - Brand Dashboard 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Built with:
 
-Currently, two official plugins are available:
+- [React](https://reactjs.org/) - JS library
+- [SCSS](https://sass-lang.com/) - Sass Syntax
+- [Typescript](https://www.typescriptlang.org/) - Type Safety
+- [Redux toolkit](https://redux-toolkit.js.org/) - Simplified State
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live site:
 
-## Expanding the ESLint configuration
+[Live site](https://addlib-dashboard.netlify.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Screenshots
 
-- Configure the top-level `parserOptions` property like this:
+![Dahboard](/src/assets/images/dashboard.png)
+![Empty State](/src/assets/images/emptystate.png)
+![Product View](/src/assets/images/productdetails.png)
+![404](/src/assets/images/404.png)
+![Mobile view](/src/assets/images/mobiledashboard.png)
+![Mobile view](/src/assets/images/mobileproductdetails.png)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## API Integration
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Used `createAPI` feature from Redux toolkit to make API requests.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Set Up
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Create a `.env` file and populate withe `VITE_API_URL=https://fakestoreapi.com`
+
+In the project directory, you can run:
+
+#### Installation
+
+`npm install`
+
+#### Run App
+
+`npm run dev`
+
+#### Build App
+
+`npm run build`
+
+## Things Left To Do
+
+- Write unit tests
+
+## Author
+
+- LinkedIn - [Abisola Adebiyi](https://www.linkedin.com/in/abisolaadebiyi/)
+- Website - [Abisola Adebiyi](https://abisola-portfolio.netlify.app/)

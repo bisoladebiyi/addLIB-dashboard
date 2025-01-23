@@ -3,6 +3,8 @@ import style from "./Toast.module.scss";
 import { MdOutlineErrorOutline } from "react-icons/md";
 import { IToast } from "../../types/IToast.interface";
 
+/* The toast "closes" (goes out of view) after a duration of 3s */
+
 const Toast: React.FC<IToast> = ({ show, close, duration = 3000, text }) => {
   useEffect(() => {
     if (show) {

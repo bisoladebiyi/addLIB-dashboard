@@ -3,6 +3,11 @@ import style from "./Layout.module.scss";
 import { INavbar } from "../../types/INavbar.interface";
 import { IoIosClose } from "react-icons/io";
 
+/* 
+  The SideNav contains dummy links for display purposes, 
+  clicking on any one of them will display the toast 
+*/
+
 const SideNav: React.FC<Omit<INavbar, "navText">> = ({
   showSideNav,
   toggleSideNav,
@@ -12,6 +17,7 @@ const SideNav: React.FC<Omit<INavbar, "navText">> = ({
     <div
       className={showSideNav ? style.layout_sidenav_show : style.layout_sidenav}
     >
+      {/* close menu button only visible on mobile  */}
       <button className={style.layout_sidenav_toggle} onClick={toggleSideNav}>
         <IoIosClose color="#fff" size={25} />
       </button>
