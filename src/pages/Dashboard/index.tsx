@@ -93,15 +93,12 @@ const Dashboard = () => {
         )}
       </div>
 
-      {/* hide pagination component if there are no products  */}
-      {products?.length > 0 && (
-        <Pagination
-          activePage={activePage}
-          noOfPages={noOfPages}
-          onPrev={onPrev}
-          onNext={onNext}
-        />
-      )}
+      <Pagination
+        activePage={activePage}
+        noOfPages={noOfPages}
+        onPrev={onPrev}
+        onNext={onNext}
+      />
     </Layout>
   );
 };

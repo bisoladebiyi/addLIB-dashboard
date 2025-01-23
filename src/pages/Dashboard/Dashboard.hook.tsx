@@ -47,11 +47,13 @@ const useDashboard = () => {
   // handle search input value change
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchVal(e.target.value);
+    setActivePage(1);
   };
 
   // handle dropdown change for filtering
   const onDropDownChange = (option: IDropdownOption) => {
     setDropdownVal(option.value);
+    setActivePage(1);
   };
 
   // handle sort select by price or rating or none
