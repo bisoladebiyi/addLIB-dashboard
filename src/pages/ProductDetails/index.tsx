@@ -9,6 +9,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { data: product, isLoading, isError } = useGetProductQuery(id);
 
+  // loading state
   if (!product && isLoading) {
     return (
       <Layout navText="Product">
@@ -17,6 +18,7 @@ const ProductDetails = () => {
     );
   }
 
+  // error state
   if (isError) {
     return (
       <Layout navText="Product">
@@ -63,7 +65,12 @@ const ProductDetails = () => {
     );
   }
 
-  return null;
+  // empty state
+  return (
+    <Layout navText="Product">
+      <States type="empty" />
+    </Layout>
+  );
 };
 
 export default ProductDetails;

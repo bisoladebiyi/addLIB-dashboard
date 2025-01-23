@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import style from "./NotFound.module.scss";
 
+/* 404 page for invalid routes */
+
 const NotFound = () => {
   return (
     <div className={style.notfound}>

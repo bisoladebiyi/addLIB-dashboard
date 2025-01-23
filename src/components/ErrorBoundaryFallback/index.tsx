@@ -1,7 +1,7 @@
 import style from "../../pages/NotFound/NotFound.module.scss";
 import { Link } from "react-router-dom";
 
-// fallback component in the events of an error occuring
+/* A fallback component in the events of an error occuring */
 
 const ErrorBoundaryFallback = () => {
   return (

@@ -6,6 +6,7 @@ import style from "./Dropdown.module.scss";
 const Dropdown: React.FC<IDropdown> = ({ value, onChange, options }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
+  // find selected option 
   const selected = options?.find((op: IDropdownOption) => op.value === value);
 
   const toggleOptions = () => {

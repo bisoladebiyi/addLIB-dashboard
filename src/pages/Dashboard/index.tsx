@@ -92,6 +92,8 @@ const Dashboard = () => {
           <Table products={handleSearchAndSort()} />
         )}
       </div>
+
+      {/* hide pagination component if there are no products  */}
       {products?.length > 0 && (
         <Pagination
           activePage={activePage}
