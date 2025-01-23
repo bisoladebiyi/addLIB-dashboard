@@ -26,7 +26,7 @@ Used `createAPI` feature from Redux toolkit to make API requests.
 
 ## Set Up
 
-Create a `.env` file and populate withe `VITE_API_URL=https://fakestoreapi.com`
+Create a `.env` file and populate with `VITE_API_URL=https://fakestoreapi.com`
 
 In the project directory, you can run:
 
